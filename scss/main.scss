@@ -1,0 +1,202 @@
+$primary-color: #FFEFE7;
+$secondary-color: #FFDAC6;
+$terciary-color: #BABD8D;
+$quaternary-color: #FA9500;
+$primary-text-color: #7C6A0A;
+$secondary-text-color: #E86424;
+$terciary-text-color: #FFFFFF;
+$font-stack: 'IBM Plex Sans', sans-serif;
+
+@mixin fontStyle($font-weight, $font-size, $line-height, $color: null) {
+  font-weight: $font-weight;
+  font-size: $font-size;
+  line-height: $line-height;
+  color: $color;
+}
+
+@mixin widthHeight($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: $primary-color;
+  font-family: $font-stack;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 60px 32px 85px;
+  &__title {
+    @include fontStyle(400, 30px, 39px, $primary-text-color);
+  }
+  &__icons {
+    display: flex;
+    gap: 40px;
+  }
+  &__button {
+    background: none;
+    border: none;
+  }
+}
+
+.heading-section {
+  display: flex;
+  gap: 164px;
+  padding: 60px;
+  &__title {
+    @include fontStyle(600, 60px, 78px, $primary-text-color);
+    padding: 38px 0 61px 0;
+  }
+  &__message {
+    @include fontStyle(400, 25px, 33px, $primary-text-color);
+    padding-bottom: 109px;
+  }
+  &__button {
+    background-color: $quaternary-color;
+    border-radius: 35px;
+    padding: 21px 85px 22px 46px;
+    border: none;
+    @include fontStyle(700, 23px, 30px, $terciary-text-color);
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  &__img {
+    @include widthHeight(550px, 686px);
+    border-radius: 35px;
+  }
+}
+
+.product-section {
+  padding: 70px 60px 10px;
+  h2 {
+    @include fontStyle(400, 50px, normal, $primary-text-color);
+  }
+  &__card-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 75px 163px;
+    padding: 60px 0;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  filter: drop-shadow(0px 1px 10px rgba(0, 0, 0, 0.10));
+  border-radius: 8px;
+  padding: 14px 15px 32px 41px;
+  background: $secondary-color;
+  color: $primary-text-color;
+  &__icon {
+    display: flex;
+    align-self: end;
+    @include widthHeight(31px, 31px);
+  }
+  &__img {
+    padding: 12px 27px 17px 0;
+    @include widthHeight(242px, 300px);
+    img {
+      @include widthHeight(100%, 100%);
+      border-radius: 7px;
+    }
+  }
+  &__text {
+    width: 239px;
+    h3 {
+      @include fontStyle(600, 25px, 33px);
+    }
+    p {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 20px;
+      @include fontStyle(400, 15px, 20px);
+    }
+  }
+  &--terciary {
+    background: $terciary-color;
+    color: $terciary-text-color;
+      svg {
+        display: flex;
+        align-self: end;
+    }
+  }
+}
+
+.info-section {
+  padding: 0px 60px 100px;
+  h2 {
+    @include fontStyle(500, 50px, 65px, $primary-text-color)
+  }
+  &__about-us {
+    display: flex;
+    padding: 110px 84px 180px;
+    gap: 20px;
+  }
+  &__banner {
+    display: flex;
+    align-items: center;
+    @include fontStyle(500, 30px, 39px, $secondary-text-color);
+    text-align: center;
+    flex: 1 0 0;
+  }
+  &__gallery {
+    display: flex;
+    gap: 56px;
+    padding: 65px 0 85px;
+    img {
+      @include widthHeight(396px, 398px);
+      border-radius: 16px;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+  &__location {
+    iframe {
+      border-radius: 16px;
+      @include widthHeight(100%, 596px);
+      margin: 60px 0 40px;
+    }
+    h3 {
+      @include fontStyle(400, 35px, 46px, $secondary-text-color);
+    }
+    p {
+      @include fontStyle(400, 25px, 33px, $secondary-text-color);
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  background-color: $quaternary-color;
+  @include widthHeight(100%, 461px);
+  padding: 40px 60px 20px;
+  h3 {
+    padding-bottom: 40px;
+    @include fontStyle(500, 30px, 39px, $terciary-text-color);
+  }
+  &__careers {
+    display: flex;
+    flex-direction: column;
+    @include fontStyle(500, 20px, 26px, $terciary-text-color);
+    flex: 1 0 0;
+  }
+  &__social-media {
+    display: flex;
+    gap: 31px;
+    justify-content: center;
+  }
+}
